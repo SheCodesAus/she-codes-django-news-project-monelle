@@ -2,8 +2,24 @@
 
 {% block content %}
 
-<h2>Hi there </h2>
+<h2>Hi {{ user.username }}, what would you like to do? </h2>
 
-<p> This is your profile page</p>
+<div id="all-stories">
+    {% if all_stories %}
+        {% for story in all_stories %}
+            <a href="{% url 'news:story' story.id %}">
+                <p>{{ story.title }} {{ story.author.username }}</p>
+            </a>
+        {% endfor %}
+    {% else %}
+        <p>It looks like you haven't posted anything yet.</p>
+    {% endif %}
+</div>
+
+
+<a href="{% url 'news:newStory' %}">Write a New Story</a>
+<p> Edit/Delete your posts</p>
+<p> Sort by</p>
+
 
 {% endblock %}
