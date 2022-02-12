@@ -1,9 +1,12 @@
 from audioop import reverse
 from difflib import context_diff
+from multiprocessing import AuthenticationError
+import re
 from statistics import mode
 from traceback import format_exception_only
 from django.views import generic
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import NewsStory
 from .forms import StoryForm
 
@@ -28,11 +31,12 @@ class StoryView(generic.DetailView):
     context_object_name = 'story'
 
 
-class AddStoryView(generic.CreateView):
+class AddStoryView(LoginRequiredMixin, generic.CreateView):
     form_class = StoryForm
     context_object_name = 'storyForm'
     template_name = 'news/createStory.html'
     success_url = reverse_lazy('news:index')
+    login_url = '/users/login'
 
     def form_valid(self, form):
         form.instance.author = self.request.user

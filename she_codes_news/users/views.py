@@ -14,13 +14,17 @@ class CreateAccountView(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'users/createAccount.html'
 
+def get_current_user(request):
+    user = request.user
+    return render(request, 'users/userProfile.html', {"user":user})
+    
 class UserProfile(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('userProfile')
-    template_name = 'users/userprofile.html'
+    template_name = 'users/userProfile.html'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['user_stories'] = NewsStory.objects.filter(author=self.kwargs['pk'])
+        context['all_stories'] = NewsStory.objects.filter(author=self.kwargs['pk'])
         return context
 
