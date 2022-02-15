@@ -26,7 +26,5 @@ class NewsStory(models.Model):
         ("MISC", "Misc"),
         ("TRAVELS", "Travels"),
         ("CODING", "Coding"),
-        
     )
-
     category = models.CharField(max_length=200, choices=categories, default="Misc")

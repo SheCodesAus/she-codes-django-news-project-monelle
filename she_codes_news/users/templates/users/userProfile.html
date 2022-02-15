@@ -5,12 +5,10 @@
 {% if request.user == customuser %}
 <h2>Hi {{ customuser.username }}, what would you like to do? </h2>
 {% else %}
-<h2> {{ customuser.username }}'s profile </h2>
+<h2> {{ customuser.username }}'s posts </h2>
 {% endif %}
 
 <a href="{% url 'news:newStory' %}">Write a New Story</a>
-<p> Edit/Delete your posts</p>
-<p> Sort by</p><br>
 
 <div id="all-stories">
     {% if customuser.stories.all %}
