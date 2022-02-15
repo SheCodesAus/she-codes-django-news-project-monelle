@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from .models import NewsStory
+import datetime
 
 
 class StoryForm(ModelForm):
@@ -8,5 +9,10 @@ class StoryForm(ModelForm):
         model = NewsStory
         fields = ['title', 'pub_date', 'content']
         widgets = {
-            'pub_date': forms.DateInput(format=('%m%d%y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+            'pub_date': forms.DateTimeInput(
+                attrs={
+                    'type': 'datetime-local',
+                    'class':'form-control',
+                    'value':datetime.datetime.now().strftime('%Y-%m-%dT%H:%M')},
+                format='%Y-%m-%dT%H:%M'),    
         }
