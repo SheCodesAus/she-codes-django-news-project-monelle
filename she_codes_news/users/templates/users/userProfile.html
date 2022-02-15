@@ -8,6 +8,10 @@
 <h2> {{ customuser.username }}'s profile </h2>
 {% endif %}
 
+<a href="{% url 'news:newStory' %}">Write a New Story</a>
+<p> Edit/Delete your posts</p>
+<p> Sort by</p><br>
+
 <div id="all-stories">
     {% if customuser.stories.all %}
 
@@ -20,10 +24,5 @@
 
     {% endif %}
 </div>
-
-
-<a href="{% url 'news:newStory' %}">Write a New Story</a>
-<p> Edit/Delete your posts</p>
-<p> Sort by</p>
 
 {% endblock %}

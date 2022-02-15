@@ -21,17 +21,12 @@ class NewsStory(models.Model):
     class Meta:
         ordering = ['-pub_date']
 
+    # Includes categories available to posting User
     categories = (
+        ("MISC", "Misc"),
         ("TRAVELS", "Travels"),
         ("CODING", "Coding"),
-        ("MISC", "Misc"),
+        
     )
 
     category = models.CharField(max_length=200, choices=categories, default="Misc")
-    
-
-
-# Below: attempt to do something with images, I dont even know what is was all about:
-# class Post(models.Model):
-#     title=models.CharField(max_length=50)
-#     image=models.URLField(null=True, blank=True)
