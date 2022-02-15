@@ -7,7 +7,7 @@ import datetime
 class StoryForm(ModelForm):
     class Meta:
         model = NewsStory
-        fields = ['title', 'pub_date', 'content']
+        fields = ['title', 'pub_date', 'content', 'category', 'image']
         widgets = {
             'pub_date': forms.DateTimeInput(
                 attrs={
