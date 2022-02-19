@@ -13,10 +13,7 @@
         <a href="{% url 'users:userProfile' story.author.id %}">
 
         <h4>{{ story.author }}</h4>
+         </a>
 
-
-            <p>Delete your Post</a>
-
-        </div>
-    </a>
+        <a href="{% url 'news:delete' story.id %}">Delete your Post</a>
 </div>
