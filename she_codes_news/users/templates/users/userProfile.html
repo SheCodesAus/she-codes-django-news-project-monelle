@@ -8,7 +8,9 @@
 <h2> {{ customuser.username }}'s posts </h2>
 {% endif %}
 
-<a href="{% url 'news:newStory' %}">Write a New Story</a>
+<a href="{% url 'news:newStory' %}">
+    <p>Write a New Story</p>
+</a><br>
 
 <div id="all-stories">
     {% if customuser.stories.all %}
