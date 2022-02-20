@@ -8,9 +8,8 @@
 
  {% block content %}
 
- <a href="{% url 'news:newStory' %}">Write a New Story</a>
-
- <h2>Fresh off the press</h2>
+ <h2>Fresh off the press</h2><br>
+ <a href="{% url 'news:newStory' %}">Want to write a new story?</a>
 
     <div id="latest-stories">
         {% if latest_stories %}
