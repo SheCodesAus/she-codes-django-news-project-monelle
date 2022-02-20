@@ -41,13 +41,13 @@ h1 {
 h2 {
     font-family: var(--text-font);
     text-decoration: none;
+    font-size: 2rem;
     margin: 3;
 }
 
 h3 {
     font-family: var(--display-font);
     color: var(--secondary-font-color);
-    font-size: 16pt;
     text-decoration: none;
     margin: 0;
 }
