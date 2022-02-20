@@ -1,14 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
+
+
+
+:root {
+    --main-background-color: #eee;
+    --main-font-color: #252525;
+    --secondary-font-color:#555;
+    --shecodes-primary-purple: #8246af;
+    --she-codes-secondary-purple: #e5c5fd;
+    --shecodes-primary-orange: #fda103;
+    --display-font: 'Raleway', sans-serif;
+    --text-font: 'Bitter', serif;
+}
+
 
 body {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--main-background-color)
 }
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid var(--secondary-font-color);
 }
 
 /* img {
@@ -16,19 +32,31 @@ header {
 } */
 
 h1 {
-    font-family: 'Montserrat Subrayada', sans-serif;
-    text-decoration: none;
+    font-family: var(--display-font);
     font-size: 4rem;
+    text-decoration: none;
     margin: 0;
 }
 
 h2 {
-   font-family: 'Montserrat Subrayada', sans-serif; 
+    font-family: var(--text-font);
+    text-decoration: none;
 }
 
 h3 {
-    font-size: 2rem;
+    font-family: var(--text-font);
+    color: var(--secondary-font-color);
+    text-decoration: none;
+    font-size: 8pt;
     margin: 0;
+}
+
+h4 {
+    font-family: var(--text-font);
+    color: var(--secondary-font-color);
+    text-decoration: none;
+    font-size: 10pt;
+    /* margin:0; */
 }
 
 #header-text {
@@ -37,6 +65,7 @@ h3 {
 }
 
 nav {
+    text-decoration: none;
     flex-basis: 20%;
     display: flex;
     flex-direction: column;
@@ -44,11 +73,98 @@ nav {
 }
 
 a {
-    margin: 2px;
     text-decoration: none;
-    color: #000;
+    margin: 2px;
+    color: var(--main-font-color);
 }
 
-a, p {
-    font-family: monospace;
+p {
+    font-family: var(--text-font);
+}
+
+/* MEDIA QUERIES - ADJUST TO SITE AND CLASSES */
+@media (min-width: 600px){          /*fixes display for tablets and above*/
+    .top-navigationx{
+        height: 100 px;
+    }
+
+    .bio-container{
+        width:50%;                  /* occupies half the space of its parent, introduction*/
+        padding: 50px;
+    }
+
+    .bio{
+        display:flex;
+        flex-wrap: nowrap;          /*displays pic and text side-by-side as screen gets wider*/
+    }
+
+    .image-container{
+        width: 50%;                 /*occupies half the space of its parent, introduction*/
+        display: flex;   
+        justify-content: center;    /*centres the actual picture in the container*/
+    }
+
+    .project{
+        width: 33.33%;
+        margin-right: 6px;
+    }
+    .project:last-child{            /* fixes extra margin on right-hand side container*/
+        margin-right: 0px;
+    }
+
+    .projects-container{
+        display:flex;
+        flex-wrap: nowrap;
+    }
+
+    .form-container{
+        padding: 100px;
+        font-size: large;
+    }
+
+    input{
+        width:500px;
+        height:20px;
+    }
+    
+    textarea{
+        width:500px;
+        height:50px;
+    }
+
+    .footer-monospace{
+        font-family: 'Inconsolata', monospace;
+        font-size: medium;
+        margin: 0px;
+    }
+}
+@media (min-width:900px) {
+    .top-navigation{
+        height: 100px;
+    }
+
+    .bio-container{
+        width:50%;                  /* occupies half the space of its parent, introduction*/
+        padding: 50px;
+    }
+
+    .bio{
+        display:flex;
+        flex-wrap: nowrap;          /*displays pic and text side-by-side as screen gets wider*/
+    }
+
+    .image-container{
+        width: 50%;                 /*occupies half the space of its parent, introduction*/
+        display: flex;   
+        justify-content: center;    /*centres the actual picture in the container*/
+    }
+    
+    .profile-pic{
+        width: 50%;
+        padding: 15%;
+    }
+    
+    .footer-monospace{
+        font-size: large;
+    }
 }
