@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post" action="#" >
+    Are you sure you want to delete your story?
+    <br>
+    <br>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Delete">
+</form>
+
+{% endblock %}

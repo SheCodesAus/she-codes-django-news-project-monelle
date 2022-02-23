@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if request.user == customuser %}
+<h2>Hi {{ customuser.username }}, what would you like to do? </h2>
+{% else %}
+<h2> {{ customuser.username }}'s posts </h2>
+{% endif %}
+
+<a href="{% url 'news:newStory' %}">
+    <p>Write a New Story</p>
+</a><br>
+
+<div id="all-stories">
+    {% if customuser.stories.all %}
+
+        {% for story in customuser.stories.all %}
+        {% include "news/storyCard.html" with story=story %}
+        {% endfor %}
+
+    {% else %}
+    <p>It looks like you haven't posted any stories yet.</p>
+
+    {% endif %}
+</div>
+
+{% endblock %}

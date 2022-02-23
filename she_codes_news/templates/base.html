@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 
 <html lang="en">
@@ -5,21 +7,24 @@
         <meta charset="utf-8">
         <title>She Codes News</title>
         <meta name="description" content="">
-        <meta name="author" content="Hayley van Waas">
+        <meta name="author" content="Monelle Trachez">
         <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+        {% block stylesheets %}{% endblock %}
     </head>
 
     <body>
         <header>
             <div id="header-text">
                 <a id="header-link" href="{% url 'news:index' %}">
-                    <h1>She {Codes} News</h1>
+                    <h1>SHE <span class="purple">{CODES}</span> NEWS</h1>
                 </a>
             </div>
             <!-- include nav here -->
+            {% include './nav.html' %}
         </header>
 
         <!-- content blocks here -->
+        {% block content %}{% endblock %} 
     </body>
 </html>
